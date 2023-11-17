@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Cloud_Computing_Simple_Web_App</RootNamespace>
     <UserSecretsId>560edc0e-c9da-4003-89e3-af82849f8660</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
