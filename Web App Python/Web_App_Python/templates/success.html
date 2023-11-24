@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Form submitted successfully!</h2>
+<p>Here are the values you entered:</p>
+<ul>
+    <li>Month: {{ month }}</li>
+    <li>U.S. airport code: {{ usg_apt }}</li>
+    <li>Foreign airport code: {{ fg_apt }}</li>
+    <li>Airline carrier code: {{ carrier }}</li>
+    <li>Type of data: {{ type }}</li>
+    <li>Number of passengers scheduled: {{ scheduled }}</li>
+</ul>
+
+{% endblock %}
