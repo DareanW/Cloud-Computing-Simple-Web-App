@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloud Computing Simple Web App", "Cloud Computing Simple Web App\Cloud Computing Simple Web App.csproj", "{8F8F5E4B-D0E8-4D78-BB13-A787CCBDB1BE}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Web App Python", "Web App Python\Web App Python.pyproj", "{38099F39-9754-40C3-BA18-361F47535109}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8F8F5E4B-D0E8-4D78-BB13-A787CCBDB1BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F8F5E4B-D0E8-4D78-BB13-A787CCBDB1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F8F5E4B-D0E8-4D78-BB13-A787CCBDB1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F8F5E4B-D0E8-4D78-BB13-A787CCBDB1BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38099F39-9754-40C3-BA18-361F47535109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38099F39-9754-40C3-BA18-361F47535109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38099F39-9754-40C3-BA18-361F47535109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38099F39-9754-40C3-BA18-361F47535109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

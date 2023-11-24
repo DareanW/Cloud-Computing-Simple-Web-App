@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  cloudcomputingsimplewebapp:
-    image: cloudcomputingsimplewebapp
-    build:
-      context: .
-      dockerfile: ./Dockerfile
