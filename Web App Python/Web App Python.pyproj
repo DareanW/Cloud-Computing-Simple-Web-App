@@ -17,6 +17,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Web App Python</Name>
     <RootNamespace>Web App Python</RootNamespace>
+    <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,6 +41,7 @@
     <Folder Include="Web_App_Python\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="libman.json" />
     <Content Include="requirements.txt" />
     <Content Include="Web_App_Python\static\content\bootstrap.css" />
     <Content Include="Web_App_Python\static\content\bootstrap.min.css" />
@@ -65,6 +67,7 @@
     <Content Include="Web_App_Python\static\scripts\_references.js" />
     <Content Include="Web_App_Python\templates\about.html" />
     <Content Include="Web_App_Python\templates\contact.html" />
+    <Content Include="Web_App_Python\templates\Create.html" />
     <Content Include="Web_App_Python\templates\index.html" />
     <Content Include="Web_App_Python\templates\layout.html" />
   </ItemGroup>
