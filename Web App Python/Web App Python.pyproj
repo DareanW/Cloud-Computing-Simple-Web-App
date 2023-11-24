@@ -33,6 +33,7 @@
     <Compile Include="Web_App_Python\views.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Web_App_Python\" />
     <Folder Include="Web_App_Python\static\" />
     <Folder Include="Web_App_Python\static\content\" />
@@ -41,6 +42,7 @@
     <Folder Include="Web_App_Python\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\passenger-data.csv" />
     <Content Include="libman.json" />
     <Content Include="requirements.txt" />
     <Content Include="Web_App_Python\static\content\bootstrap.css" />
