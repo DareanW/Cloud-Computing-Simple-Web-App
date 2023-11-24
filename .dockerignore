@@ -1,3 +1,5 @@
+**/__pycache__
+**/.venv
 **/.classpath
 **/.dockerignore
 **/.env
@@ -11,10 +13,10 @@
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm
-**/azds.yaml
 **/bin
 **/charts
 **/docker-compose*
+**/compose*
 **/Dockerfile*
 **/node_modules
 **/npm-debug.log
