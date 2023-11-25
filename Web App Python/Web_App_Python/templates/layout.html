@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Flask Application</title>
+    <title>{{ title }} MongoDB Data Airline Manager</title>
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/static/content/site.css"/>
     <script src="/static/scripts/modernizr-2.6.2.js"></script>
@@ -31,11 +31,16 @@
                 <li>
                     <a href="{{ url_for('contact') }}">Contact</a>
                 </li>
-                <li>
-                    <a href="{{ url_for('create') }}">Create</a>
-                </li>
-                <li>
-                    <a href="{{ url_for('read') }}">Read</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Operations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url_for('create') }}">Create</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('read') }}">Read</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -46,7 +51,7 @@
     {% block content %}{% endblock %}
     <hr/>
     <footer>
-        <p>&copy; {{ year }} - My Flask Application</p>
+        <p>© {{ year }} - My Flask Application</p>
     </footer>
 </div>
 

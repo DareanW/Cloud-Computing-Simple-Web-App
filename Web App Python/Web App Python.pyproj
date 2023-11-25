@@ -77,9 +77,12 @@
     <Content Include="Web_App_Python\static\scripts\_references.js" />
     <Content Include="Web_App_Python\templates\about.html" />
     <Content Include="Web_App_Python\templates\contact.html" />
+    <Content Include="Web_App_Python\templates\failure.html" />
     <Content Include="Web_App_Python\templates\index.html" />
     <Content Include="Web_App_Python\templates\layout.html" />
     <Content Include="Web_App_Python\templates\Create.html" />
+    <Content Include="Web_App_Python\templates\Read.html" />
+    <Content Include="Web_App_Python\templates\Results.html" />
     <Content Include="Web_App_Python\templates\success.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />

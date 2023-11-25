@@ -8,7 +8,6 @@ def print_all_documents():
     for document in documents:
         pprint(document)
 
-
 def handle_submit():
     # Get the values from the form
     month = int(float(request.form.get('Month')))
@@ -17,5 +16,20 @@ def handle_submit():
     carrier = request.form.get('carrier')
     type = request.form.get('type')
     scheduled = int(float(request.form.get('Scheduled')))
-    print_all_documents()
-    return render_template('success.html', month=month, usg_apt=usg_apt, fg_apt=fg_apt, carrier=carrier, type=type, scheduled=scheduled)
+
+    # Create a new record
+    new_record = {
+        'Month': month,
+        'usg_apt': usg_apt,
+        'fg_apt': fg_apt,
+        'carrier': carrier,
+        'type': type,
+        'Scheduled': scheduled
+    }
+
+    # Insert the new record into the database
+    try:
+        collection.insert_one(new_record)
+        return render_template('success.html', month=month, usg_apt=usg_apt, fg_apt=fg_apt, carrier=carrier, type=type, scheduled=scheduled)
+    except:
+        return render_template('failure.html')

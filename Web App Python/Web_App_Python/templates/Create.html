@@ -19,20 +19,20 @@
 </form>
 
 <script>
-$( "#myForm" ).validate({
-  rules: {
-    Scheduled: {
-      number: true,
-      step: 1
-    }
-  },
-  messages: {
-    Scheduled: {
-      number: "Please enter a valid number",
-      step: "Please enter an integer"
-    }
-  }
-});
+    $("#myForm").validate({
+        rules: {
+            Scheduled: {
+                number: true,
+                step: 1
+            }
+        },
+        messages: {
+            Scheduled: {
+                number: "Please enter a valid number",
+                step: "Please enter an integer"
+            }
+        }
+    });
 </script>
 
 {% endblock %}
