@@ -5,9 +5,9 @@
 <h2>Operation completed successfully!</h2>
 <p>Here are the records that were affected:</p>
 
-{% for record in records %}  <!-- 'records' matches with the variable name in render_template -->
+{% for record in records %} <!-- 'records' matches with the variable name in render_template -->
 <ul>
-    <li>Month: {{ record['Month'] }}</li>  <!-- Access dictionary values with record['key'] -->
+    <li>Month: {{ record['Month'] }}</li> <!-- Access dictionary values with record['key'] -->
     <li>U.S. airport code: {{ record['usg_apt'] }}</li>
     <li>Foreign airport code: {{ record['fg_apt'] }}</li>
     <li>Airline carrier code: {{ record['carrier'] }}</li>

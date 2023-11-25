@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<p>{{ message }}</p>
+
+<p>Here are the records that were affected:</p>
+
+{% for record in records %}
+<table>
+    <tr>
+        <th>Old Record</th>
+        <th>New Record</th>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>Month: {{ record.old['Month'] }}</li>
+                <li>U.S. airport code: {{ record.old['usg_apt'] }}</li>
+                <li>Foreign airport code: {{ record.old['fg_apt'] }}</li>
+                <li>Airline carrier code: {{ record.old['carrier'] }}</li>
+                <li>Type of data: {{ record.old['type'] }}</li>
+                <li>Number of passengers scheduled: {{ record.old['Scheduled'] }}</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Month: {{ record.new['Month'] }}</li>
+                <li>U.S. airport code: {{ record.new['usg_apt'] }}</li>
+                <li>Foreign airport code: {{ record.new['fg_apt'] }}</li>
+                <li>Airline carrier code: {{ record.new['carrier'] }}</li>
+                <li>Type of data: {{ record.new['type'] }}</li>
+                <li>Number of passengers scheduled: {{ record.new['Scheduled'] }}</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+{% endfor %}
+
+{% endblock %}

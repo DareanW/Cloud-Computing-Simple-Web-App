@@ -1,12 +1,12 @@
 from flask import render_template, request
 
 from Web_App_Python.DatabaseConnection.database import collection
-from pprint import pprint
+#from pprint import pprint
 
-def print_all_documents():
-    documents = collection.find()
-    for document in documents:
-        pprint(document)
+#def print_all_documents():
+#    documents = collection.find()
+#    for document in documents:
+#        pprint(document)
 
 def handle_submit():
     # Get the values from the form

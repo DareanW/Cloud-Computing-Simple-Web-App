@@ -2,8 +2,9 @@
 Routes and views for the flask application.
 """
 
-from pprint import pprint
+#from pprint import pprint
 from datetime import datetime
+import time
 from flask import render_template, request
 from Web_App_Python import app
 import Web_App_Python
@@ -63,6 +64,16 @@ def read():
         title='Read',
         year=datetime.now().year,
         message='Read the Airline records stored in the Mongo Database.'
+    )
+
+@app.route('/update')
+def update():
+    """Renders the update page."""
+    return render_template(
+        'update.html',
+        title='Update',
+        year=datetime.now().year,
+        message='Update the Specified Airline records stored in the Mongo Database.'
     )
 
 @app.route('/delete')
@@ -129,8 +140,8 @@ def query():
     results = [result for result in cursor]
     
     # Print results
-    for result in results:
-        pprint(result)
+    #for result in results:
+        #pprint(result)
         
     # Render results page
     return render_template('Results.html', title='Query Results', message='Here are your results:', results=results)
@@ -196,3 +207,91 @@ def deleteRecord():
         return render_template('success.html', title='Delete Results', message='The records were successfully deleted.', records=saved_records)
     else:
         return render_template('failure.html', title='Delete Results', message='No records matched the given filters.')
+
+@app.route('/update', methods=['POST'])
+def updateRecord():
+    # Get query parameters for the old record
+    month = request.form.get('Month')
+    month_operator = request.form.get('Month_operator')
+    usg_apt = request.form.get('usg_apt')
+    fg_apt = request.form.get('fg_apt')
+    carrier = request.form.get('carrier')
+    type = request.form.get('type')
+    scheduled = request.form.get('Scheduled')
+    scheduled_operator = request.form.get('Scheduled_operator')
+
+    # Get new values
+    new_month = request.form.get('new_Month')
+    new_usg_apt = request.form.get('new_usg_apt')
+    new_fg_apt = request.form.get('new_fg_apt')
+    new_carrier = request.form.get('new_carrier')
+    new_type = request.form.get('new_type')
+    new_scheduled = request.form.get('new_Scheduled')
+
+    # Build query for the old record
+    filters = []
+    if month:
+        if month_operator == 'le':
+            filters.append({'Month': {'$lte': int(float(month))}})
+        elif month_operator == 'ge':
+            filters.append({'Month': {'$gte': int(float(month))}})
+        else:  # Default to 'eq'
+            filters.append({'Month': int(float(month))})
+    if usg_apt:
+        filters.append({'usg_apt': usg_apt})
+    if fg_apt:
+        filters.append({'fg_apt': fg_apt})
+    if carrier:
+        filters.append({'carrier': carrier})
+    if type:
+        filters.append({'type': type})
+    if scheduled:
+        if scheduled_operator == 'le':
+            filters.append({'Scheduled': {'$lte': int(float(scheduled))}})
+        elif scheduled_operator == 'ge':
+            filters.append({'Scheduled': {'$gte': int(float(scheduled))}})
+        else:  # Default to 'eq'
+            filters.append({'Scheduled': int(float(scheduled))})
+
+    # Combine filters using AND logic
+    query = {}
+    if filters:
+        query['$and'] = filters
+
+    # Build update operation
+    update_operation = {}
+    if new_month:
+        update_operation['Month'] = int(float(new_month))
+    if new_usg_apt:
+        update_operation['usg_apt'] = new_usg_apt
+    if new_fg_apt:
+        update_operation['fg_apt'] = new_fg_apt
+    if new_carrier:
+        update_operation['carrier'] = new_carrier
+    if new_type:
+        update_operation['type'] = new_type
+    if new_scheduled:
+        update_operation['Scheduled'] = int(float(new_scheduled))
+
+    # Execute update operation
+    from .DatabaseConnection.database import collection
+
+    # First save the _id and original values of each record to be updated
+    cursor = collection.find(query)
+    old_records = [record.copy() for record in cursor]
+    ids_to_update = [record['_id'] for record in old_records]
+
+    result = collection.update_many(query, {'$set': update_operation})
+
+    # Check if the update was successful
+    if result.modified_count > 0:
+        # Query the database again to get the updated records
+        updated_records_cursor = collection.find({'_id': {'$in': ids_to_update}})
+        updated_records = [record.copy() for record in updated_records_cursor]
+
+        # Create a list of dictionaries containing the old and new values
+        records = [{'old': old, 'new': new} for old, new in zip(old_records, updated_records)]
+
+        return render_template('update_success.html', title='Update Results', message='The records were successfully updated.', records=records)
+    else:
+        return render_template('failure.html', title='Update Results', message='No records matched the given filters.')
