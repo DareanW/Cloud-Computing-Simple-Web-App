@@ -2,15 +2,18 @@
 
 {% block content %}
 
-<h2>Form submitted successfully!</h2>
-<p>Here are the values you entered:</p>
+<h2>Operation completed successfully!</h2>
+<p>Here are the records that were affected:</p>
+
+{% for record in records %}  <!-- 'records' matches with the variable name in render_template -->
 <ul>
-    <li>Month: {{ month }}</li>
-    <li>U.S. airport code: {{ usg_apt }}</li>
-    <li>Foreign airport code: {{ fg_apt }}</li>
-    <li>Airline carrier code: {{ carrier }}</li>
-    <li>Type of data: {{ type }}</li>
-    <li>Number of passengers scheduled: {{ scheduled }}</li>
+    <li>Month: {{ record['Month'] }}</li>  <!-- Access dictionary values with record['key'] -->
+    <li>U.S. airport code: {{ record['usg_apt'] }}</li>
+    <li>Foreign airport code: {{ record['fg_apt'] }}</li>
+    <li>Airline carrier code: {{ record['carrier'] }}</li>
+    <li>Type of data: {{ record['type'] }}</li>
+    <li>Number of passengers scheduled: {{ record['Scheduled'] }}</li>
 </ul>
+{% endfor %}
 
 {% endblock %}

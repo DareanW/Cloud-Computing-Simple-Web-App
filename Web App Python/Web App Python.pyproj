@@ -29,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="runserver.py" />
-    <Compile Include="Web_App_Python\database\database.py">
+    <Compile Include="Web_App_Python\DatabaseConnection\database.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Web_App_Python\actions\submit.py">
@@ -41,7 +41,7 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Web_App_Python\" />
-    <Folder Include="Web_App_Python\database\" />
+    <Folder Include="Web_App_Python\DatabaseConnection\" />
     <Folder Include="Web_App_Python\static\" />
     <Folder Include="Web_App_Python\static\content\" />
     <Folder Include="Web_App_Python\static\fonts\" />
@@ -77,6 +77,7 @@
     <Content Include="Web_App_Python\static\scripts\_references.js" />
     <Content Include="Web_App_Python\templates\about.html" />
     <Content Include="Web_App_Python\templates\contact.html" />
+    <Content Include="Web_App_Python\templates\Delete.html" />
     <Content Include="Web_App_Python\templates\failure.html" />
     <Content Include="Web_App_Python\templates\index.html" />
     <Content Include="Web_App_Python\templates\layout.html" />

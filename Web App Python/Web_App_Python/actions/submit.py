@@ -1,6 +1,6 @@
 from flask import render_template, request
 
-from ..database.database import collection
+from Web_App_Python.DatabaseConnection.database import collection
 from pprint import pprint
 
 def print_all_documents():
@@ -30,6 +30,6 @@ def handle_submit():
     # Insert the new record into the database
     try:
         collection.insert_one(new_record)
-        return render_template('success.html', month=month, usg_apt=usg_apt, fg_apt=fg_apt, carrier=carrier, type=type, scheduled=scheduled)
+        return render_template('success.html', records=[new_record])
     except:
         return render_template('failure.html')
