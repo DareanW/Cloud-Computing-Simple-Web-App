@@ -6,4 +6,4 @@ from flask import Flask
 app = Flask(__name__)
 
 import Web_App_Python.views
-from Web_App_Python.database.database import client
+from Web_App_Python.DatabaseConnection.database import databaseClient

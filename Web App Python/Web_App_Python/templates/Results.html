@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>Month</th>
+        <th>The U.S. airport code</th>
+        <th>The foreign airport code</th>
+        <th>The airline carrier code</th>
+        <th>The type of data</th>
+        <th>Number of Passengers</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in results %}
+    <tr>
+        <td>{{ result.Month }}</td>
+        <td>{{ result.usg_apt }}</td>
+        <td>{{ result.fg_apt }}</td>
+        <td>{{ result.carrier }}</td>
+        <td>{{ result.type }}</td>
+        <td>{{ result.Scheduled }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

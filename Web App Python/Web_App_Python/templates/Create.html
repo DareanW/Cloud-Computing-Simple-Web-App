@@ -9,30 +9,30 @@
 <script src="{{ url_for('static', filename='scripts/jquery.validate.min.js') }}"></script>
 
 <form id="myForm" action="/submit" method="post">
-    <input id="Month" name="Month" placeholder="Month" type="number" required min="1" max="12" />
-    <input id="usg_apt" name="usg_apt" placeholder="The U.S. airport code." type="text" required minlength="3" maxlength="3" />
-    <input id="fg_apt" name="fg_apt" placeholder="The foreign airport code" type="text" required minlength="3" maxlength="3" />
-    <input id="carrier" name="carrier" placeholder="The airline carrier code." type="text" required minlength="2" maxlength="3" />
-    <input id="type" name="type" placeholder="The type of data." type="text" required />
-    <input id="Scheduled" name="Scheduled" placeholder="Number of Passengers." required type="number" min="0" digits="true" number="true" step="1" />
-    <input id="Submit1" type="submit" value="submit" />
+    <input id="Month" name="Month" placeholder="Month." type="number" required min="1" max="12"/>
+    <input id="usg_apt" name="usg_apt" placeholder="The U.S. airport code." type="text" required minlength="3" maxlength="3"/>
+    <input id="fg_apt" name="fg_apt" placeholder="The foreign airport code." type="text" required minlength="3" maxlength="3"/>
+    <input id="carrier" name="carrier" placeholder="The airline carrier code." type="text" required minlength="2" maxlength="3"/>
+    <input id="type" name="type" placeholder="The type of data." type="text" required/>
+    <input id="Scheduled" name="Scheduled" placeholder="Number of Passengers." required type="number" min="0" digits="true" number="true" step="1"/>
+    <input id="Submit1" type="submit" value="submit"/>
 </form>
 
 <script>
-$( "#myForm" ).validate({
-  rules: {
-    Scheduled: {
-      number: true,
-      step: 1
-    }
-  },
-  messages: {
-    Scheduled: {
-      number: "Please enter a valid number",
-      step: "Please enter an integer"
-    }
-  }
-});
+    $("#myForm").validate({
+        rules: {
+            Scheduled: {
+                number: true,
+                step: 1
+            }
+        },
+        messages: {
+            Scheduled: {
+                number: "Please enter a valid number",
+                step: "Please enter an integer"
+            }
+        }
+    });
 </script>
 
 {% endblock %}
